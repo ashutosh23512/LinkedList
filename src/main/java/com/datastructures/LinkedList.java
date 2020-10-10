@@ -70,6 +70,20 @@ public class LinkedList {
 
 	}
 
+	public INode poplast() {
+		INode tempnode = head;
+		if (head == null) {
+			return null;
+		}
+		while (tempnode.getnext() != tail) {
+			tempnode = tempnode.getnext();
+		}
+		tempnode.setnext(null);
+		tail = tempnode;
+		return head;
+
+	}
+
 	public void print() {
 		INode tempnode = head;
 		while (tempnode != null) {
