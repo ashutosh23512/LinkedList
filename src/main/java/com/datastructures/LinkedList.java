@@ -10,4 +10,15 @@ public class LinkedList {
 		this.tail = null;
 	}
 
+	public void add(INode mynode) {
+		if (head == null) {
+			this.head = mynode;
+			this.tail = mynode;
+		} else {
+			mynode.setnext(head);
+			this.head = mynode;
+
+		}
+	}
+
 }
