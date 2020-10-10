@@ -30,10 +30,41 @@ public class LinkedList {
 			this.tail = tail.getnext();
 		}
 	}
+
+	public int length() {
+		INode temp = head;
+		int count = 0;
+		while (temp != null) {
+			count++;
+			temp = temp.getnext();
+		}
+		return count;
+	}
+
+	public void insert(INode mynode) {
+		if (head == null) {
+			this.head = mynode;
+			this.tail = mynode;
+			return;
+		}
+		int len = length() / 2;
+		INode slow = head;
+		INode fast = head.getnext();
+
+		while (fast != null && fast.getnext() != null) {
+			slow = slow.getnext();
+			fast = fast.getnext().getnext();
+		}
+		INode temp = slow.getnext();
+		slow.setnext(mynode);
+		mynode.setnext(temp);
+
+	}
+
 	public void print() {
 		INode tempnode = head;
 		while (tempnode != null) {
-			System.out.print(tempnode.getkey()+"->");
+			System.out.print(tempnode.getkey() + "->");
 			tempnode = tempnode.getnext();
 		}
 		System.out.println();
