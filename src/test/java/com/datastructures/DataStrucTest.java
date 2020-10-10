@@ -155,4 +155,29 @@ public class DataStrucTest {
 		list.print();
 
 	}
+	@Test
+	public void Stack_push() {
+		System.out.println("Stack Push");
+
+		DataStruc<Integer> firstnodeadd= new DataStruc<Integer>(70);
+		DataStruc<Integer> secondnodeadd = new DataStruc<Integer>(30);
+		DataStruc<Integer> thirdnodeadd= new DataStruc<Integer>(56);
+		Stack stack = new Stack();
+		stack.push(firstnodeadd);
+		stack.push(secondnodeadd);
+		stack.push(thirdnodeadd);
+		stack.print();
+		
+		
+//		INode first = thirdnodeappend.getnext();
+//		list.deleteat(40);
+//		INode sec = secondnodeappend.getnext();
+//		boolean result = false;
+//		if (first == sec) {
+//			result = true;
+//		}
+//		assertEquals(true, result);
+//		list.print();
+
+	}
 }
