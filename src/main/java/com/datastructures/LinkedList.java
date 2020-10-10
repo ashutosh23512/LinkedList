@@ -84,6 +84,24 @@ public class LinkedList {
 
 	}
 
+	public int search(Integer k) {
+		if (head == null) {
+			return -1;
+		}
+		INode tempnode = head;
+		int index = 1;
+		while (tempnode.getkey() != k) {
+			tempnode = tempnode.getnext();
+			index++;
+			if (tempnode.getkey() == k) {
+				return index;
+			}
+
+		}
+		return -1;
+
+	}
+
 	public void print() {
 		INode tempnode = head;
 		while (tempnode != null) {
