@@ -1,5 +1,7 @@
 package com.datastructures;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.*;
 
 public class DataStrucTest {
@@ -60,8 +62,9 @@ public class DataStrucTest {
 		list.append(secondnodeappend);
 		list.append(thirdnodeappend);
 		list.print();
-		list.popfirst();
+		INode pop = list.popfirst();
 		list.print();
+		Assert.assertEquals(secondnodeappend, pop);
 	}
 
 	@Test
@@ -76,8 +79,10 @@ public class DataStrucTest {
 		list.append(secondnodeappend);
 		list.append(thirdnodeappend);
 		list.print();
-		list.poplast();
+		INode pop = list.poplast();
 		list.print();
+		Assert.assertEquals(firstnodeappend, pop);
+
 	}
 
 	@Test
@@ -94,6 +99,8 @@ public class DataStrucTest {
 		list.print();
 		int index = list.search(30);
 		System.out.println(index);
+		int i = list.search(30);
+		Assert.assertEquals(2, i);
 
 	}
 
@@ -110,7 +117,41 @@ public class DataStrucTest {
 		list.append(thirdnodeappend);
 		list.print();
 		DataStruc<Integer> fourthnodeappend = new DataStruc<Integer>(40);
+		INode first = secondnodeappend.getnext();
+
 		list.insertat(fourthnodeappend, 30);
+		list.print();
+		INode sec = fourthnodeappend.getnext();
+		boolean result = false;
+		if (first == sec) {
+			result = true;
+		}
+		assertEquals(true, result);
+		list.print();
+	}
+
+	@Test
+	public void LinkedList_delete_at() {
+		System.out.println("Delete at:");
+
+		DataStruc<Integer> firstnodeappend = new DataStruc<Integer>(56);
+		DataStruc<Integer> secondnodeappend = new DataStruc<Integer>(30);
+		DataStruc<Integer> thirdnodeappend = new DataStruc<Integer>(40);
+		DataStruc<Integer> fourthnodeappend = new DataStruc<Integer>(70);
+		LinkedList list = new LinkedList();
+		list.append(firstnodeappend);
+		list.append(secondnodeappend);
+		list.append(thirdnodeappend);
+		list.append(fourthnodeappend);
+		list.print();
+		INode first = thirdnodeappend.getnext();
+		list.deleteat(40);
+		INode sec = secondnodeappend.getnext();
+		boolean result = false;
+		if (first == sec) {
+			result = true;
+		}
+		assertEquals(true, result);
 		list.print();
 
 	}

@@ -120,7 +120,31 @@ public class LinkedList {
 				position--;
 			}
 		} else {
-			System.out.println("Not such key");
+			System.out.println("No such key found");
+			return;
+		}
+	}
+
+	public void deleteat(Integer key) {
+		if (head == null) {
+			return;
+		}
+		int position = search(key) - 1;
+		if (position >= 0) {
+			INode temp = head;
+			INode temp2 = head.getnext();
+			while (temp2 != null) {
+				temp2 = temp2.getnext();
+				if (position == 1) {
+
+					temp.setnext(temp2);
+					return;
+				}
+				temp = temp.getnext();
+				position--;
+			}
+		} else {
+			System.out.println("No such key found");
 			return;
 		}
 	}
