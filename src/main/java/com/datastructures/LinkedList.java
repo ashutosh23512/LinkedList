@@ -61,6 +61,15 @@ public class LinkedList {
 
 	}
 
+	public INode popfirst() {
+		if (head == null) {
+			return null;
+		}
+		head = head.getnext();
+		return head;
+
+	}
+
 	public void print() {
 		INode tempnode = head;
 		while (tempnode != null) {
