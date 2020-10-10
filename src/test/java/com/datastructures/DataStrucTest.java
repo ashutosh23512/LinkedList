@@ -79,4 +79,21 @@ public class DataStrucTest {
 		list.poplast();
 		list.print();
 	}
+
+	@Test
+	public void LinkedList_search() {
+		System.out.println("Search:");
+
+		DataStruc<Integer> firstnodeappend = new DataStruc<Integer>(56);
+		DataStruc<Integer> secondnodeappend = new DataStruc<Integer>(30);
+		DataStruc<Integer> thirdnodeappend = new DataStruc<Integer>(70);
+		LinkedList list = new LinkedList();
+		list.append(firstnodeappend);
+		list.append(secondnodeappend);
+		list.append(thirdnodeappend);
+		list.print();
+		int index = list.search(30);
+		System.out.println(index);
+
+	}
 }
