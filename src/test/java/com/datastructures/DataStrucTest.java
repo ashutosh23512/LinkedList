@@ -63,4 +63,20 @@ public class DataStrucTest {
 		list.popfirst();
 		list.print();
 	}
+
+	@Test
+	public void LinkedList_pop_last() {
+		System.out.println("Pop Last:");
+
+		DataStruc<Integer> firstnodeappend = new DataStruc<Integer>(56);
+		DataStruc<Integer> secondnodeappend = new DataStruc<Integer>(30);
+		DataStruc<Integer> thirdnodeappend = new DataStruc<Integer>(70);
+		LinkedList list = new LinkedList();
+		list.append(firstnodeappend);
+		list.append(secondnodeappend);
+		list.append(thirdnodeappend);
+		list.print();
+		list.poplast();
+		list.print();
+	}
 }
