@@ -47,4 +47,20 @@ public class DataStrucTest {
 		list.insert(secondnodeappend);
 		list.print();
 	}
+
+	@Test
+	public void LinkedList_pop_first() {
+		System.out.println("Pop First:");
+
+		DataStruc<Integer> firstnodeappend = new DataStruc<Integer>(56);
+		DataStruc<Integer> secondnodeappend = new DataStruc<Integer>(30);
+		DataStruc<Integer> thirdnodeappend = new DataStruc<Integer>(70);
+		LinkedList list = new LinkedList();
+		list.append(firstnodeappend);
+		list.append(secondnodeappend);
+		list.append(thirdnodeappend);
+		list.print();
+		list.popfirst();
+		list.print();
+	}
 }
