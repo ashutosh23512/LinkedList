@@ -90,16 +90,39 @@ public class LinkedList {
 		}
 		INode tempnode = head;
 		int index = 1;
-		while (tempnode.getkey() != k) {
-			tempnode = tempnode.getnext();
-			index++;
+		while (tempnode != null) {
+
 			if (tempnode.getkey() == k) {
 				return index;
 			}
+			index++;
+			tempnode = tempnode.getnext();
 
 		}
 		return -1;
 
+	}
+
+	public void insertat(INode node, int key) {
+		if (head == null) {
+			return;
+		}
+		int position = search(key) - 1;
+		if (position >= 0) {
+			INode tempnode = head;
+			while (tempnode != null) {
+				if (position == 0) {
+					INode temp3 = tempnode.getnext();
+					tempnode.setnext(node);
+					node.setnext(temp3);
+				}
+				tempnode = tempnode.getnext();
+				position--;
+			}
+		} else {
+			System.out.println("Not such key");
+			return;
+		}
 	}
 
 	public void print() {
