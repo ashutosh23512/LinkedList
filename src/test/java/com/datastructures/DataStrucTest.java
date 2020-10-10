@@ -96,4 +96,22 @@ public class DataStrucTest {
 		System.out.println(index);
 
 	}
+
+	@Test
+	public void LinkedList_insert_at() {
+		System.out.println("Insert at:");
+
+		DataStruc<Integer> firstnodeappend = new DataStruc<Integer>(56);
+		DataStruc<Integer> secondnodeappend = new DataStruc<Integer>(30);
+		DataStruc<Integer> thirdnodeappend = new DataStruc<Integer>(70);
+		LinkedList list = new LinkedList();
+		list.append(firstnodeappend);
+		list.append(secondnodeappend);
+		list.append(thirdnodeappend);
+		list.print();
+		DataStruc<Integer> fourthnodeappend = new DataStruc<Integer>(40);
+		list.insertat(fourthnodeappend, 30);
+		list.print();
+
+	}
 }
