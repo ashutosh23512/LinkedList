@@ -155,4 +155,38 @@ public class DataStrucTest {
 		list.print();
 
 	}
+
+	@Test
+	public void Stack_push() {
+		System.out.println("Stack Push");
+
+		DataStruc<Integer> firstnodeadd = new DataStruc<Integer>(70);
+		DataStruc<Integer> secondnodeadd = new DataStruc<Integer>(30);
+		DataStruc<Integer> thirdnodeadd = new DataStruc<Integer>(56);
+		Stack stack = new Stack();
+		stack.push(firstnodeadd);
+		stack.push(secondnodeadd);
+		stack.push(thirdnodeadd);
+		stack.print();
+
+	}
+
+	@Test
+	public void given3NumbersWhenAddedToLinkedListShouldBeSort() {
+		DataStruc<Integer> firstNode = new DataStruc<>(70);
+		DataStruc<Integer> secondNode = new DataStruc<>(30);
+		DataStruc<Integer> thirdNode = new DataStruc<>(56);
+		SortList<Integer> list = new SortList<>();
+		list.sortList(firstNode);
+		list.sortList(secondNode);
+		list.sortList(thirdNode);
+		INode first = list.head;
+		INode sec = list.head.getnext();
+		INode third = list.tail;
+		boolean result = false;
+		if (first == secondNode && sec == thirdNode && third == firstNode) {
+			result = true;
+		}
+		Assert.assertTrue(result);
+	}
 }
