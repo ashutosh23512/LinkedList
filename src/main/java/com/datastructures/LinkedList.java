@@ -1,6 +1,6 @@
 package com.datastructures;
 
-public class LinkedList {
+public class LinkedList<K> {
 
 	INode head;
 	INode tail;
@@ -84,7 +84,7 @@ public class LinkedList {
 
 	}
 
-	public int search(Integer k) {
+	public int search(Integer key) {
 		if (head == null) {
 			return -1;
 		}
@@ -92,7 +92,7 @@ public class LinkedList {
 		int index = 1;
 		while (tempnode != null) {
 
-			if (tempnode.getkey() == k) {
+			if (tempnode.getkey() == key) {
 				return index;
 			}
 			index++;
@@ -100,6 +100,25 @@ public class LinkedList {
 
 		}
 		return -1;
+
+	}
+
+	public INode<K> search1(K key) {
+		if (head == null) {
+			return null;
+		}
+		INode tempnode = head;
+		int index = 1;
+		while (tempnode != null) {
+
+			if (tempnode.getkey().equals(key)) {
+				return tempnode;
+			}
+			index++;
+			tempnode = tempnode.getnext();
+
+		}
+		return null;
 
 	}
 
@@ -157,5 +176,58 @@ public class LinkedList {
 		}
 		System.out.println();
 
+	}
+
+	public int search1Index(K key) {
+		int l = length();
+		if (head == null) {
+			return -1;
+		} else {
+			INode temp = head;
+			int cnt = 0;
+			while (temp != null) {
+				if (temp.getkey().equals(key)) {
+					System.out.println(key + " Fount at " + cnt);
+					return cnt;
+				}
+				cnt++;
+				temp = temp.getnext();
+			}
+
+		}
+		return -2;
+	}
+
+	public void delete1(K key) {
+		if (head == null) {
+			return;
+		}
+		int pos = search1Index(key);
+		if (pos == 0) {
+			popfirst();
+		} else if (pos == length() - 1) {
+			poplast();
+		} else if (pos > 0 && pos < length() - 1) {
+			INode temp = head;
+			INode temp2 = head.getnext();
+			while (temp2 != null) {
+				temp2 = temp2.getnext();
+				if (pos == 1) {
+					INode temp3 = temp.getnext();
+					temp.setnext(temp2);
+					return;
+				}
+				temp = temp.getnext();
+				pos--;
+			}
+		} else {
+			System.out.println("No such key in linked list");
+			return;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "LL{" + head + '}';
 	}
 }
