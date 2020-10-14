@@ -29,4 +29,21 @@ public class MyBinaryTree<K extends Comparable<K>> {
 		return curr == null ? 0 : 1 + this.getsizerec(curr.left) + this.getsizerec(curr.right);
 	}
 
+	public boolean searchnode(K key) {
+		return this.searchRec(root, key);
+	}
+
+	private boolean searchRec(MyBinaryNode<K> root, K key) {
+		if (root == null) {
+			return false;
+		}
+		int result = root.key.compareTo(key);
+		if (result == 0)
+			return true;
+		else if (result < 0)
+			return searchRec(root.right, key);
+		else
+			return searchRec(root.left, key);
+	}
+
 }
